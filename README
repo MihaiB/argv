@@ -1,1 +1,7 @@
 Show command line arguments.
+
+https://pkg.go.dev/github.com/MihaiB/argv
+
+cd # go outside a module
+go get -u github.com/MihaiB/argv
+`go env GOPATH`/bin/argv 'single arg' two args

@@ -3,6 +3,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: step
+        run: .github/workflows/workflow.sh
 
 name: workflow
 
