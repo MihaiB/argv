@@ -1,4 +1,4 @@
-Show command line arguments.
+Print command line arguments.
 
 https://pkg.go.dev/github.com/MihaiB/argv
 

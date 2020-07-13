@@ -1,4 +1,4 @@
-// Argv shows its command line arguments.
+// Argv prints its command line arguments.
 package main
 
 import (
