@@ -1,6 +1,7 @@
 package main
 
 import (
+	"strings"
 	"testing"
 )
 
@@ -18,5 +19,33 @@ func TestFmtArg(t *testing.T) {
 		if got != want {
 			t.Errorf("%v: want %#v got %#v", params, want, got)
 		}
+	}
+}
+
+func TestWriteArgvZero(t *testing.T) {
+	for _, argv := range [][]string{nil, {}} {
+		b := &strings.Builder{}
+		writeArgv(argv, b)
+		want := "argv length: 0\n"
+		got := b.String()
+
+		if got != want {
+			t.Errorf("want %#v got %#v", want, got)
+		}
+	}
+}
+
+func TestWriteArgvNonZero(t *testing.T) {
+	argv := []string{"prg", "a", "b\n\tc"}
+	want := `argv length: 3
+0 (3 codepoints, 3 bytes): "prg"
+1 (1 codepoints, 1 bytes): "a"
+2 (4 codepoints, 4 bytes): "b\n\tc"
+`
+	b := &strings.Builder{}
+	writeArgv(argv, b)
+	got := b.String()
+	if got != want {
+		t.Errorf("want %#v got %#v", want, got)
 	}
 }
