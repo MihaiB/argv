@@ -1,3 +1,3 @@
 module github.com/MihaiB/argv
 
-go 1.15
+go 1.16
